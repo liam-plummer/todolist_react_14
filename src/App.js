@@ -9,7 +9,7 @@ export default class App extends React.Component{
     this.state = {
       valeur : "fef",
       tab : [],
-      inputEdit : ""
+      inputEdit : "",
     }
   }
   changeInput = (b) => {
@@ -27,7 +27,8 @@ export default class App extends React.Component{
     let objet = {
       value : `${a.valeur}`,
       validate : false,
-      edit : false
+      edit : false,
+      display: true
     } 
     a.tab.push(objet)
     a.valeur = ""
@@ -58,15 +59,6 @@ export default class App extends React.Component{
     c.tab.splice(i, 1)
     this.setState(c)
   }
-  completed = (i) => {
-    let z = this.state 
-    if (z.tab[i].validate === true){
-      return(
-        <Liste />
-      ) 
-    }
-    this.setState(z)
-  }
   render(){
     return(
       <div className="my-3">
@@ -77,7 +69,7 @@ export default class App extends React.Component{
         </div>
         <div className="d-flex my-3 justify-content-center">
           <button className="p-2 mx-2 bg-primary">Toutes</button>
-          <button className="p-2 mx-2 bg-success" onClick={i => this.completed(i)}>Completes</button>
+          <button className="p-2 mx-2 bg-success">Completes</button>
           <button className="p-2 mx-2 bg-warning">A faire</button>
         </div>
         <ul className="d-flex flex-column justify-content-center">
